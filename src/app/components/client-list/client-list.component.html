@@ -1,0 +1,33 @@
+  <app-progress-bar *ngIf="loading" ></app-progress-bar>
+  <div *ngIf="!loading" class="container">
+
+    <div class="tablehead">
+      <h3>Listado de Clientes</h3>
+      <button type="button" class="btn btn-outline-primary" routerLink="/add" >Agregar Cliente</button>
+    </div>
+
+  <table *ngIf="clientList.length > 0" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID Cliente</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Contacto</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clientList" class="table-active">
+        <th scope="row"> {{ client.id_client }} </th>
+        <td> {{ client.name }} </td>
+        <td> {{ client.lastname }} </td>
+        <td> {{ client.contact }} </td>
+        <td>
+          <button routerLink="/edit/{{client.id_client}}" type="button" class="btn btn-warning btn-sm">Editar</button>
+          <button  (click)="deleteClient(client.id_client!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

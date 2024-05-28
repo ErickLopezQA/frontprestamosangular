@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-4 offset-lg-4">
+
+    <div class="card bg-secondary mb-3 mt-2" style="max-width: 30rem;">
+      <div class="card-header text-center">Registrar Cliente</div>
+      <div class="card-body">
+
+        <form [formGroup]="formClient" (ngSubmit)="addClient()">
+            <input formControlName="name" type="text" class="form-control" placeholder="Ingresar nombre(s)">
+            <span  *ngIf="formClient.get('name')?.hasError('required') && formClient.get('name')?.touched">
+              El campo nombre es <b>Requerido</b>
+            </span>
+            <input formControlName="lastname" type="text" class="form-control mt-2" placeholder="Ingresar apellido(s)">
+            <span  *ngIf="formClient.get('lastname')?.hasError('required') && formClient.get('lastname')?.touched">
+              El campo apellido es <b>Requerido</b>
+            </span>
+            <input formControlName="email" type="email" class="form-control mt-2" placeholder="Ingresar correo electronico">
+            <span  *ngIf="formClient.get('email')?.hasError('required') && formClient.get('email')?.touched">
+              El campo correo electronico es <b>Requerido</b>
+            </span>
+            <input formControlName="contact" type="number" class="form-control mt-2" placeholder="Ingresar contacto">
+            <span  *ngIf="formClient.get('contact')?.hasError('required') && formClient.get('contact')?.touched">
+              El campo contacto es <b>Requerido</b>
+            </span>
+            <input formControlName="address" type="text" class="form-control mt-2" placeholder="Ingresar direccion">
+            <span  *ngIf="formClient.get('address')?.hasError('required') && formClient.get('address')?.touched">
+              El campo direccion es <b>Requerido</b>
+            </span>
+          <div class="row mt-2 text-center">
+            <div class="col-lg-6 ">
+              <button [disabled]="formClient.invalid" type="submit" class="btn btn-primary mt-4">Registrar</button>
+            </div>
+            <div class="col-lg-6 ">
+              <button routerLink="/" type="button" class="btn btn-danger mt-4 ms-2">Cancelar</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
