@@ -1,0 +1,32 @@
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="container">
+
+  <div class="tablehead">
+    <h3>Listado de Deudores</h3>
+    <button type="button" class="btn btn-outline-primary" routerLink="/addloan" >Agregar Prestamo</button>
+  </div>
+
+<table *ngIf="loanList.length > 0" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID Prestamo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Contacto</th>
+      <th scope="col">Fecha de Registro</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loanList" class="table-active">
+      <th scope="row"> {{ loan.id_loan }} </th>
+      <td> {{ loan.client.name }} {{ loan.client.lastname }} </td>
+      <td> {{ loan.client.contact }} </td>
+      <td> {{ formatDate(loan.createdAt) }} </td>
+      <td>
+        <button  (click)="deleteLoan(loan.id_loan!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

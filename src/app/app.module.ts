@@ -16,6 +16,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { AddEditClientComponent } from './components/add-edit-client/add-edit-client.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { AmountListComponent } from './components/amount-list/amount-list.component';
+import { LoanListComponent } from './components/loan-list/loan-list.component';
+import { AddEditAmountComponent } from './components/add-edit-amount/add-edit-amount.component';
+import { AddEditTimeLimitComponent } from './components/add-edit-time-limit/add-edit-time-limit.component';
+import { AddEditLoanComponent } from './components/add-edit-loan/add-edit-loan.component';
+import { AddEditTimePeriodComponent } from './components/add-edit-time-period/add-edit-time-period.component';
+import { TimePeriodListComponent } from './components/time-period-list/time-period-list.component';
 
 
 
@@ -25,7 +32,14 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
     NavbarComponent,
     ClientListComponent,
     AddEditClientComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    AmountListComponent,
+    LoanListComponent,
+    AddEditAmountComponent,
+    AddEditTimeLimitComponent,
+    AddEditLoanComponent,
+    AddEditTimePeriodComponent,
+    TimePeriodListComponent
   ],
   imports: [
     BrowserModule,

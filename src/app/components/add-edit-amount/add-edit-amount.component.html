@@ -1,0 +1,32 @@
+
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="row mt-1">
+  <div class="col-lg-4 offset-lg-4">
+
+    <div class="card bg-secondary mb-3 mt-2" style="max-width: 30rem;">
+      <div class="card-header text-center">{{operacion}} Monto</div>
+      <div class="card-body">
+
+        <form [formGroup]="formAmount" (ngSubmit)="addAmount()">
+            <input formControlName="amount" type="text" class="form-control" placeholder="Ingresar monto">
+            <span  *ngIf="formAmount.get('amount')?.hasError('required') && formAmount.get('amount')?.touched">
+              El campo nombre es <b>Requerido</b>
+            </span>
+          <div class="row mt-2 text-center">
+            <div class="col-lg-6 ">
+              <button [disabled]="formAmount.invalid" type="submit" class="btn btn-primary mt-4">Registrar</button>
+            </div>
+            <div class="col-lg-6 ">
+              <button routerLink="/amount" type="button" class="btn btn-danger mt-4 ms-2">Cancelar</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+f

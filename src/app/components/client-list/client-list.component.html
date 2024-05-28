@@ -3,7 +3,7 @@
 
     <div class="tablehead">
       <h3>Listado de Clientes</h3>
-      <button type="button" class="btn btn-outline-primary" routerLink="/add" >Agregar Cliente</button>
+      <button type="button" class="btn btn-outline-primary" routerLink="/addclient" >Agregar Cliente</button>
     </div>
 
   <table *ngIf="clientList.length > 0" class="table table-hover">
@@ -23,7 +23,7 @@
         <td> {{ client.lastname }} </td>
         <td> {{ client.contact }} </td>
         <td>
-          <button routerLink="/edit/{{client.id_client}}" type="button" class="btn btn-warning btn-sm">Editar</button>
+          <button routerLink="/editclient/{{client.id_client}}" type="button" class="btn btn-warning btn-sm">Editar</button>
           <button  (click)="deleteClient(client.id_client!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
         </td>
       </tr>

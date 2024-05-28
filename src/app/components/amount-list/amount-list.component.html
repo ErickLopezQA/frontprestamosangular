@@ -1,0 +1,28 @@
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="container">
+
+  <div class="tablehead">
+    <h3>Listado de Montos</h3>
+    <button type="button" class="btn btn-outline-primary" routerLink="/addamount" >Agregar Montos</button>
+  </div>
+
+<table *ngIf="amountList.length > 0" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID Monto</th>
+      <th scope="col">Montos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let amount of amountList" class="table-active">
+      <th scope="row"> {{ amount.id_amount }} </th>
+      <td> {{ amount.amount }} </td>
+      <td>
+        <button routerLink="/editamount/{{amount.id_amount}}" type="button" class="btn btn-warning btn-sm">Editar</button>
+        <button  (click)="deleteAmount(amount.id_amount!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

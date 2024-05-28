@@ -1,0 +1,32 @@
+
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="row mt-1">
+  <div class="col-lg-4 offset-lg-4">
+
+    <div class="card bg-secondary mb-3 mt-2" style="max-width: 30rem;">
+      <div class="card-header text-center">{{operacion}} Plazo</div>
+      <div class="card-body">
+
+        <form [formGroup]="formTimePeriod" (ngSubmit)="addTimePeriod()">
+            <input formControlName="time_period" type="text" class="form-control" placeholder="Ingresar plazo">
+            <span  *ngIf="formTimePeriod.get('time_period')?.hasError('required') && formTimePeriod.get('time_period')?.touched">
+              El campo nombre es <b>Requerido</b>
+            </span>
+          <div class="row mt-2 text-center">
+            <div class="col-lg-6 ">
+              <button [disabled]="formTimePeriod.invalid" type="submit" class="btn btn-primary mt-4">Registrar</button>
+            </div>
+            <div class="col-lg-6 ">
+              <button routerLink="/time_period" type="button" class="btn btn-danger mt-4 ms-2">Cancelar</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+f

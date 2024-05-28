@@ -1,0 +1,28 @@
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="container">
+
+  <div class="tablehead">
+    <h3>Listado de Plazos</h3>
+    <button type="button" class="btn btn-outline-primary" routerLink="/addtime_period" >Agregar Plazos</button>
+  </div>
+
+<table *ngIf="TimePeriodList.length > 0" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID Monto</th>
+      <th scope="col">Plazos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let time_period of TimePeriodList" class="table-active">
+      <th scope="row"> {{ time_period.id_time_period }} </th>
+      <td> {{ time_period.time_period }} </td>
+      <td>
+        <button routerLink="/edittime_period/{{time_period.id_time_period}}" type="button" class="btn btn-warning btn-sm">Editar</button>
+        <button  (click)="deleteTimePeriod(time_period.id_time_period!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

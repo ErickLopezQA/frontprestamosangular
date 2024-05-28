@@ -1,8 +1,10 @@
-<div class="row">
+
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="row mt-1">
   <div class="col-lg-4 offset-lg-4">
 
     <div class="card bg-secondary mb-3 mt-2" style="max-width: 30rem;">
-      <div class="card-header text-center">Registrar Cliente</div>
+      <div class="card-header text-center">{{operacion}} Cliente</div>
       <div class="card-body">
 
         <form [formGroup]="formClient" (ngSubmit)="addClient()">
@@ -31,7 +33,7 @@
               <button [disabled]="formClient.invalid" type="submit" class="btn btn-primary mt-4">Registrar</button>
             </div>
             <div class="col-lg-6 ">
-              <button routerLink="/" type="button" class="btn btn-danger mt-4 ms-2">Cancelar</button>
+              <button routerLink="/client" type="button" class="btn btn-danger mt-4 ms-2">Cancelar</button>
             </div>
           </div>
 
