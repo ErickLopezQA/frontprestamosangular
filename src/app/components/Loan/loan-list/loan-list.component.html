@@ -2,7 +2,7 @@
 <div *ngIf="!loading" class="container">
 
   <div class="tablehead">
-    <h3>Listado de Deudores</h3>
+    <h3>Listado de Prestamos</h3>
     <button type="button" class="btn btn-outline-primary" routerLink="/addloan" >Agregar Prestamo</button>
   </div>
 
@@ -23,7 +23,9 @@
       <td> {{ loan.client.contact }} </td>
       <td> {{ formatDate(loan.createdAt) }} </td>
       <td>
-        <button  (click)="deleteLoan(loan.id_loan!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
+        <button  (click)="deleteLoan(loan.id_loan!)" type="button" class="btn btn-outline-danger  btn-sm ms-1">Eliminar</button>
+        <button class="btn btn-outline-dark btn-sm" type="button">Amortizacion</button>
+
       </td>
     </tr>
 

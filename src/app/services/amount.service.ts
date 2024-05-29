@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Amount } from '../interfaces/amount';
+import { updateAmount } from '../../../../server/src/controllers/amount.controller';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class AmountService {
 
     addAmount(amount: Amount): Observable<Amount> {
       return this.http.post<Amount>(this.myAppUrl + this.myApiAmountsUrl, amount);
+    }
+
+    updateAmount(id: number, amount: Amount): Observable<void> {
+      return this.http.put<void>(this.myAppUrl + this.myApiAmountsUrl + id, amount);
     }
 
     getAmount(id: number): Observable<Amount> {

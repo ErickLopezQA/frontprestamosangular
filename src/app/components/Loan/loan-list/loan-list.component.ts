@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Loan } from 'src/app/interfaces/loan';
 import { LoanService } from 'src/app/services/loan.service';
-
 @Component({
   selector: 'app-loan-list',
   templateUrl: './loan-list.component.html',
@@ -43,6 +42,8 @@ export class LoanListComponent {
   formatDate(date: string){
     return this.datePipe.transform(date, 'dd MMM yyyy');
   }
+
+
 
 
 }

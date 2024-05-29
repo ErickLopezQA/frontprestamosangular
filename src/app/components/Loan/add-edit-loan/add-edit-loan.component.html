@@ -1,0 +1,51 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="row mt-1">
+  <div class="col-lg-4 offset-lg-4">
+    <div class="card bg-secondary mb-3 mt-2" style="max-width: 30rem;">
+      <div class="card-header text-center">{{operacion}} Prestamo</div>
+      <div class="card-body">
+        <form [formGroup]="formLoan" (ngSubmit)="addLoan()">
+          <div>
+            <label for="client" class="form-label mt-4">Seleccionar Cliente</label>
+            <select id="client" formControlName="id_client" class="form-select">
+              <option *ngFor="let client of clientList" [value]="client.id_client">{{client.name}} {{client.lastname}}</option>
+            </select>
+          </div>
+          <div>
+            <label for="amount" class="form-label mt-4">Seleccionar Monto</label>
+            <select id="amount" formControlName="id_amount" class="form-select">
+              <option *ngFor="let amount of amountList" [value]="amount.id_amount">{{amount.amount | currency}}</option>
+            </select>
+          </div>
+          <div>
+            <label for="time_period" class="form-label mt-4">Seleccionar Plazo</label>
+            <select id="time_period" formControlName="id_time_period" class="form-select">
+              <option *ngFor="let timePeriod of timePeriodList" [value]="timePeriod.id_time_period">{{timePeriod.time_period}} Quincenas</option>
+            </select>
+          </div>
+          <div class="row mt-2 text-center">
+            <div class="col-lg-6">
+              <button [disabled]="formLoan.invalid" type="submit" class="btn btn-primary mt-4">Registrar</button>
+            </div>
+            <div class="col-lg-6">
+              <button routerLink="/loan" type="button" class="btn btn-danger mt-4 ms-2">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <span  *ngIf="formLoan.get('name')?.hasError('required') && formLoan.get('name')?.touched">
+Seleccionar un cliente es Requerido</span>
+
+<input formControlName="lastname" type="text" class="form-control mt-2" placeholder="Ingresar apellido(s)">
+<span  *ngIf="formLoan.get('lastname')?.hasError('required') && formLoan.get('lastname')?.touched">
+  El campo apellido es <b>Requerido</b>
+</span>
+<input formControlName="email" type="email" class="form-control mt-2" placeholder="Ingresar correo electronico">
+<span  *ngIf="formLoan.get('email')?.hasError('required') && formLoan.get('email')?.touched">
+  El campo correo electronico es <b>Requerido</b> -->
+<!-- </span> -->
+

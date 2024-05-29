@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TimePeriod } from '../../interfaces/time-period';
+import { TimePeriod } from '../../../interfaces/time-period';
 import { TimePeriodService } from 'src/app/services/time-period.service';
 import { ToastrService } from 'ngx-toastr';
 

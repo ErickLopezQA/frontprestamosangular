@@ -16,10 +16,10 @@
   <tbody>
     <tr *ngFor="let amount of amountList" class="table-active">
       <th scope="row"> {{ amount.id_amount }} </th>
-      <td> {{ amount.amount }} </td>
+      <td> {{ amount.amount | currency }} </td>
       <td>
         <button routerLink="/editamount/{{amount.id_amount}}" type="button" class="btn btn-warning btn-sm">Editar</button>
-        <button  (click)="deleteAmount(amount.id_amount!)" type="button" class="btn btn-danger  btn-sm ms-1">Eliminar</button>
+        <button  (click)="deleteAmount(amount.id_amount!)" type="button" class="btn btn-outline-danger  btn-sm ms-1">Eliminar</button>
       </td>
     </tr>
 

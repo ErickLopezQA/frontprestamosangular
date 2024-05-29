@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TimePeriod } from '../interfaces/time-period';
+import { updateTimePeriod } from '../../../../server/src/controllers/time-period.controller';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class TimePeriodService {
 
   addTimePeriod(timePeriod: TimePeriod): Observable<TimePeriod[]>  {
     return this.http.post<TimePeriod[]>(this.myAppUrl + this.myApiTimePeriodsUrl, timePeriod);
+  }
+
+  updateTimePeriod(id: number, timePeriod: TimePeriod): Observable<void>  {
+    return this.http.put<void>(this.myAppUrl + this.myApiTimePeriodsUrl + id, timePeriod);
   }
 
   getTimePeriod(id: number): Observable<TimePeriod[]> {

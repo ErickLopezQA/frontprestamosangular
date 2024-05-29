@@ -52,11 +52,20 @@ export class AddEditAmountComponent {
           amount: this.formAmount.get('amount')?.value
         };
 
+        if(this.id !== 0) {
+          this.loading = true;
+          this._amountService.updateAmount(this.id, dataAmount).subscribe(data => {
+            this.loading = false;
+            this.toastr.info('Monto actualizado con éxito', 'Monto');
+            this.router.navigate(['/amount']);
+          });
+          return;
+        }
         this.loading = true;
         this._amountService.addAmount(dataAmount).subscribe(data => {
           this.loading = false;
           this.toastr.success('Monto agregado con éxito', 'Monto');
-          this.router.navigate(['/amounts']);
+          this.router.navigate(['/amount']);
         })
 
       }

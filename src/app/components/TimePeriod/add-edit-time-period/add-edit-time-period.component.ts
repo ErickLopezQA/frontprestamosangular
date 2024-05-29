@@ -1,4 +1,4 @@
-import { TimePeriod } from './../../interfaces/time-period';
+import { TimePeriod } from '../../../interfaces/time-period';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -52,12 +52,22 @@ export class AddEditTimePeriodComponent {
       time_period: this.formTimePeriod.get('timePeriod')?.value
     };
 
+    if(this.id !== 0) {
+      this.loading = true;
+      this._timePeriodService.updateTimePeriod(this.id, dataTimePeriod).subscribe(data => {
+        this.loading = false;
+        this.toastr.info('Periodo de tiempo actualizado con éxito', 'Periodo de tiempo');
+        this.router.navigate(['/time_period']);
+      });
+    } else {
+
     this.loading = true;
     this._timePeriodService.addTimePeriod(dataTimePeriod).subscribe(data => {
       this.loading = false;
       this.toastr.success('Periodo de tiempo agregado con éxito', 'Periodo de tiempo');
-      this.router.navigate(['/time-periods']);
+      this.router.navigate(['/time_period']);
     });
+  }
   }
 
 }

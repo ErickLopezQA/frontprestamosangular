@@ -66,12 +66,23 @@ export class AddEditClientComponent {
       address: this.formClient.get('address')?.value
     };
 
-    this.loading = true;
-    this._clientService.addClient(dataClient).subscribe(() => {
+    if(this.id !== 0) {
+      this.loading = true;
+      this._clientService.updateClient(this.id, dataClient).subscribe(() => {
+        this.loading = false;
+        this.toastr.info('Cliente actualizado con éxito', 'Cliente actualizado');
+        this.router.navigate(['/client']);
+      });
+    } else {
+      this.loading = true;
+      this._clientService.addClient(dataClient).subscribe(() => {
       this.loading = false;
       this.toastr.success('Cliente agregado con éxito', 'Cliente agregado');
-      this.router.navigate(['/clients']);
+      this.router.navigate(['/client']);
     })
+    }
+
+
   }
 
 
